@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#5b67f1" />
+  <meta name="description" content="Juego de Sudoku interactivo 9x9 para escritorio y móvil." />
+  <title>Sudoku Zen</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">JUEGO DE LÓGICA</p>
+        <h1>Sudoku Zen</h1>
+        <p class="subtitle">Completa la cuadrícula sin repetir números.</p>
+      </div>
+
+      <div class="status-card" aria-live="polite">
+        <span class="status-label">Estado</span>
+        <strong id="gameStatus">En progreso</strong>
+      </div>
+    </header>
+
+    <section class="game-layout">
+      <div class="board-panel">
+        <div
+          id="sudokuBoard"
+          class="sudoku-board"
+          role="grid"
+          aria-label="Tablero de Sudoku de 9 por 9"
+        ></div>
+
+        <p id="message" class="message" aria-live="polite">
+          Selecciona una celda vacía y luego un número.
+        </p>
+      </div>
+
+      <aside class="controls-panel" aria-label="Controles del juego">
+        <section class="control-card">
+          <h2>Teclado numérico</h2>
+          <div id="numberPad" class="number-pad" aria-label="Números del 1 al 9"></div>
+
+          <button id="eraseButton" class="button button-secondary" type="button">
+            Borrar celda
+          </button>
+        </section>
+
+        <section class="control-card">
+          <h2>Acciones</h2>
+          <div class="action-grid">
+            <button id="newGameButton" class="button button-primary" type="button">
+              Nuevo tablero
+            </button>
+            <button id="solveButton" class="button button-accent" type="button">
+              Mostrar solución
+            </button>
+          </div>
+
+          <label class="difficulty-label" for="difficulty">
+            Dificultad
+          </label>
+          <select id="difficulty" class="difficulty-select">
+            <option value="easy">Fácil</option>
+            <option value="medium" selected>Media</option>
+            <option value="hard">Difícil</option>
+          </select>
+        </section>
+
+        <section class="rules-card">
+          <h2>Reglas</h2>
+          <p>
+            Cada fila, columna y subcuadrícula de 3×3 debe contener los números
+            del 1 al 9 sin repetir.
+          </p>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
